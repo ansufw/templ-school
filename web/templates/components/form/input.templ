@@ -1,0 +1,14 @@
+package form
+
+templ Input(inputType, name, placeholder, value string) {
+	<div class="form-group">
+		<input 
+			type={ inputType }
+			name={ name }
+			placeholder={ placeholder }
+			value={ value }
+			class="form-input"
+			required
+		/>
+	</div>
+}

@@ -1,0 +1,40 @@
+package layouts
+
+import (
+	"templ-school/web/entity"
+	"templ-school/web/templates/components"
+)
+
+templ Dashboard(title string, menu []entity.MenuCategory) {
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>{ title }</title>
+        <link rel="stylesheet" href="/static/css/global.css"/>
+
+
+	</head>
+	<body>
+		<div class="flex h-screen">
+            // left
+            <div class="w-[14%] m:w-[20%] l:w-[18%] xl:w-[16%] p-4">
+
+				<a href="/about" class="flex justify-center text-center gap-2">
+					<img src="/static/images/logo.png" height="32" width="32" alt="logo school" />
+					<span class="hidden lg:block">TemplSchool</span>
+				</a>
+				@components.Sidebar(menu)
+			</div>
+            
+			// right
+			<div class="w-[86%] m:w-[80%] l:w-[82%] xl:w-[84%]">
+            
+				@components.NavbarDashboard()
+            </div>
+		</div>
+		<script src="/static/js/main.js"></script>
+	</body>
+	</html>
+}

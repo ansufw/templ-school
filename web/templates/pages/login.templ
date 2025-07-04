@@ -1,0 +1,38 @@
+package pages
+
+import "templ-school/web/templates/layouts"
+import "templ-school/web/templates/components/form"
+
+templ Login(errorMessage string) {
+	@layouts.Base("Login - MyApp") {
+		<div class="login-page">
+			<div class="container">
+				<div class="login-form-container">
+					<h1 class="login-title">Login</h1>
+					
+					if errorMessage != "" {
+						<div class="error-message">
+							{ errorMessage }
+						</div>
+					}
+					
+					<form method="POST" action="/login" class="login-form">
+						@form.Input("email", "email", "Email", "")
+						@form.Input("password", "password", "Password", "")
+						
+						<div class="form-actions">
+							@form.Button("Login", "submit")
+						</div>
+					</form>
+					
+					<div class="login-footer">
+						<p>Don't have an account? <a href="/register">Sign up</a></p>
+						<p class="demo-credentials">
+							<strong>Demo:</strong> admin@example.com / password
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	}
+}
