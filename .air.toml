@@ -5,8 +5,8 @@ tmp_dir = "tmp"
 [build]
   args_bin = []
   bin = "./tmp/main"
-  pre_cmd = ["templ generate","./tailwindcss -i ./web/static/css/tailwind.css -o ./web/static/css/global.css"]
-  cmd = "go build -o ./tmp/main cmd/web/main.go"
+  pre_cmd = ["./tailwindcss -i ./web/static/css/tailwind.css -o ./web/static/css/global.css", "templ generate"]
+  cmd = "go build -o ./tmp/main cmd/web/*.go"
   delay = 1000
   exclude_dir = ["tmp", "vendor", "testdata"]
   exclude_file = []
